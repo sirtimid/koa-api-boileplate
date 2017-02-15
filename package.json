@@ -1,0 +1,71 @@
+{
+  "name": "koa-api-boileplate",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "prebuild": "npm run clean --silent",
+    "build": "babel -q -D -s true ./src/ --out-dir ./lib/",
+    "clean": "del-cli ./lib",
+    "prepublish": "npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sirtimid/koa-api-boileplate.git"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sirtimid/koa-api-boileplate/issues"
+  },
+  "homepage": "https://github.com/sirtimid/koa-api-boileplate#readme",
+  "dependencies": {
+    "async-busboy": "^0.3.3",
+    "axios": "^0.15.3",
+    "babel-polyfill": "^6.16.0",
+    "babel-runtime": "^6.18.0",
+    "bunyan": "^1.8.5",
+    "config": "^1.24.0",
+    "html-to-text": "^2.1.3",
+    "image-size": "^0.5.0",
+    "ioredis": "^2.4.0",
+    "jsonwebtoken": "^7.1.9",
+    "kcors": "^2.2.0",
+    "knex": "^0.12.6",
+    "koa": "^2.0.0-alpha.7",
+    "koa-basic-auth": "^2.0.0",
+    "koa-bodyparser": "^3.2.0",
+    "koa-combine-routers": "^1.0.0",
+    "koa-compose": "^3.2.1",
+    "koa-compress": "^2.0.0",
+    "koa-convert": "^1.2.0",
+    "koa-generic-session": "^1.11.3",
+    "koa-lusca": "^2.2.0",
+    "koa-passport": "^2.2.2",
+    "koa-redis": "^2.1.2",
+    "koa-router": "^7.0.1",
+    "koa-send": "^3.2.0",
+    "koa-static": "^3.0.0",
+    "koa-views": "^5.2.0",
+    "lodash": "^4.17.2",
+    "mime": "^1.3.4",
+    "mkdirp": "^0.5.1",
+    "mysql": "^2.12.0",
+    "nodemailer": "^2.6.4",
+    "on-finished": "^2.3.0",
+    "passport-facebook": "^2.1.1",
+    "passport-github": "^1.1.0",
+    "passport-google-oauth20": "^1.0.0",
+    "passport-local": "^1.0.0",
+    "passport-twitter": "^1.0.4",
+    "raw-body": "^2.1.7",
+    "stream-injecter": "0.0.1",
+    "uuid": "^3.0.0"
+  },
+  "devDependencies": {
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-stage-3": "^6.17.0",
+    "babel-register": "^6.18.0",
+    "del-cli": "^0.2.0"
+  }
+}
