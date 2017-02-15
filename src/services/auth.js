@@ -158,8 +158,6 @@ export async function setTokenCookie(ctx, next) {
 		return
 	}
 	const token = signToken(ctx.state.user.id, ctx.state.user.role)
-	// Record action to history
-	await ctx.models.user_history.create({ name: `user.login.social`, user: ctx.state.user, ip: ctx.request.ip })
-	// redirect to login : TODO fix endpoint when html5 urls are enabled
-	ctx.redirect('/#/login?access_token='+token)
+	// redirect after login
+	ctx.redirect('/')
 }
