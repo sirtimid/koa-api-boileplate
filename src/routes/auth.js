@@ -12,7 +12,7 @@ const router = new Router({ prefix: '/api/auth' })
 /*
  * Local Strategy
  */
-router.post('/local', function(ctx, next) {
+router.post('/login', function(ctx, next) {
 	return passport.authenticate('local', async function(user, info, error) {
 
 		error = error || info
@@ -40,7 +40,7 @@ router.post('/local', function(ctx, next) {
 /**
  * Send reset password email
  */
-router.post('/local/forgot', async function(ctx, next) {
+router.post('/forgot', async function(ctx, next) {
 	ctx.assert(ctx.request.email, 403, 'Email required')
 	const user = await ctx.models.user.findByEmail(ctx.request.email)
 	ctx.assert(user, 404, 'User not found')
@@ -63,7 +63,7 @@ router.post('/local/forgot', async function(ctx, next) {
 /**
  * Validate token from reset password link
  */
-router.post('/local/forgot/validate', async function(ctx, next) {
+router.post('/forgot/validate', async function(ctx, next) {
 	ctx.assert(ctx.request.token, 403, 'Token required')
 	try {
 		const decoded = auth.validateEmailToken(ctx.request.token)
@@ -79,7 +79,7 @@ router.post('/local/forgot/validate', async function(ctx, next) {
 /**
  * Reset a users password
  */
-router.post('/local/reset', async function(ctx, next) {
+router.post('/reset', async function(ctx, next) {
 	ctx.assert(ctx.request.token, 403, 'Token required')
 	ctx.assert(ctx.request.password, 403, 'Password required')
 	ctx.assert(ctx.request.repeat_password, 403, 'Repeat Password required')
@@ -100,7 +100,7 @@ router.post('/local/reset', async function(ctx, next) {
 /**
  * Send activation token by email
  */
-router.post('/local/send_activation', async function(ctx, next) {
+router.post('/send_activation', async function(ctx, next) {
 	ctx.assert(ctx.request.email, 403, 'Email required')
 	const user = await ctx.models.user.findByEmail(ctx.request.email)
 	ctx.assert(user, 404, 'User not found')
@@ -124,7 +124,7 @@ router.post('/local/send_activation', async function(ctx, next) {
 /**
  * Activate user by token
  */
-router.post('/local/activate', async function(ctx, next) {
+router.post('/activate', async function(ctx, next) {
 	ctx.assert(ctx.request.token, 403, 'Token required')
 	try {
 		const decoded = auth.validateEmailToken(ctx.request.token)

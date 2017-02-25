@@ -8,10 +8,7 @@ An opinionated Node.js API boilerplate built on top of Koa 2.0 using Knex.js wri
 - [knex](http://knexjs.org/) (`npm install --global knex`)
 - [MySQL](https://hub.docker.com/_/mysql/)
 - [Redis](https://redis.io/)
-
-### Developing
-
-
+- [Babel](https://babeljs.io/)
 
 ##Project Structure
 
